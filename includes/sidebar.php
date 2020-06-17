@@ -104,7 +104,7 @@
                   
                   
         <?php 
-        $query = "SELECT * FROM categories";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories";
         $select_categories_sidebar = mysqli_query($connection,$query);         
         ?>
                  <h4>Blog Categories</h4>
