@@ -27,7 +27,7 @@
 
     
                 
-    $query = "SELECT * FROM posts WHERE post_user = '{$the_post_author}' ";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_user = '{$the_post_author}' ";
     $select_all_posts_query = mysqli_query($connection,$query);
 
     while($row = mysqli_fetch_assoc($select_all_posts_query)) {
@@ -78,7 +78,7 @@
  if(!empty($comment_author) && !empty($comment_email) && !empty($comment_content) ) {
                     
                     
-                    $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
+                    $query = "INSERT INTO heroku_597cf2e5c9cb274.comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
 
 $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
                                 
@@ -90,7 +90,7 @@ $create_comment_query = mysqli_query($connection,$query);
                     
                     
                     
-$query = "UPDATE posts SET post_comment_count = post_comment_count + 1 ";         $query .= "WHERE post_id = $the_post_id ";
+$query = "UPDATE heroku_597cf2e5c9cb274.posts SET post_comment_count = post_comment_count + 1 ";         $query .= "WHERE post_id = $the_post_id ";
 $update_comment_count = mysqli_query($connection,$query);
                     
 
