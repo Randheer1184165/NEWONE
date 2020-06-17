@@ -14,7 +14,7 @@
 
     }
 
-if($stmt = mysqli_prepare($connection, 'SELECT username, user_email, token FROM users WHERE token=?')){
+if($stmt = mysqli_prepare($connection, 'SELECT username, user_email, token FROM heroku_597cf2e5c9cb274.users WHERE token=?')){
 
 
     mysqli_stmt_bind_param($stmt, "s", $_GET['token']);
