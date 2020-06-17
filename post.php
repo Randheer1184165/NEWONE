@@ -16,18 +16,18 @@
 
       //1 =  FETCHING THE RIGHT POST
 
-     $query = "SELECT * FROM posts WHERE post_id=$post_id";
+     $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_id=$post_id";
      $postResult = mysqli_query($connection, $query);
      $post = mysqli_fetch_array($postResult);
      $likes = $post['likes'];
 
      // 2 = UPDATE - INCREMENTING WITH LIKES
 
-     mysqli_query($connection, "UPDATE posts SET likes=$likes+1 WHERE post_id=$post_id");
+     mysqli_query($connection, "UPDATE heroku_597cf2e5c9cb274.posts SET likes=$likes+1 WHERE post_id=$post_id");
 
      // 3 = CREATE LIKES FOR POST
 
-     mysqli_query($connection, "INSERT INTO likes(user_id, post_id) VALUES($user_id, $post_id)");
+     mysqli_query($connection, "INSERT INTO heroku_597cf2e5c9cb274.likes(user_id, post_id) VALUES($user_id, $post_id)");
      exit();
 
 
@@ -44,19 +44,19 @@
 
      //1 =  FETCHING THE RIGHT POST
 
-     $query = "SELECT * FROM posts WHERE post_id=$post_id";
+     $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_id=$post_id";
      $postResult = mysqli_query($connection, $query);
      $post = mysqli_fetch_array($postResult);
      $likes = $post['likes'];
 
      //2 = DELETE LIKES
 
-     mysqli_query($connection, "DELETE FROM likes WHERE post_id=$post_id AND user_id=$user_id");
+     mysqli_query($connection, "DELETE FROM heroku_597cf2e5c9cb274.likes WHERE post_id=$post_id AND user_id=$user_id");
 
 
      //3 = UPDATE WITH DECREMENTING WITH LIKES
 
-     mysqli_query($connection, "UPDATE posts SET likes=$likes-1 WHERE post_id=$post_id");
+     mysqli_query($connection, "UPDATE heroku_597cf2e5c9cb274.posts SET likes=$likes-1 WHERE post_id=$post_id");
 
      exit();
 
@@ -87,7 +87,7 @@
 
 
 
-        $update_statement = mysqli_prepare($connection, "UPDATE posts SET post_views_count = post_views_count + 1 WHERE post_id = ?");
+        $update_statement = mysqli_prepare($connection, "UPDATE heroku_597cf2e5c9cb274.posts SET post_views_count = post_views_count + 1 WHERE post_id = ?");
 
         mysqli_stmt_bind_param($update_statement, "i", $the_post_id);
 
@@ -106,11 +106,11 @@
     if(isset($_SESSION['username']) && is_admin($_SESSION['username']) ) {
 
 
-         $stmt1 = mysqli_prepare($connection, "SELECT post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_id = ?");
+         $stmt1 = mysqli_prepare($connection, "SELECT post_title, post_author, post_date, post_image, post_content FROM heroku_597cf2e5c9cb274.posts WHERE post_id = ?");
 
 
     } else {
-        $stmt2 = mysqli_prepare($connection , "SELECT post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_id = ? AND post_status = ? ");
+        $stmt2 = mysqli_prepare($connection , "SELECT post_title, post_author, post_date, post_image, post_content FROM heroku_597cf2e5c9cb274.posts WHERE post_id = ? AND post_status = ? ");
 
         $published = 'published';
 
@@ -262,7 +262,7 @@
         if (!empty($comment_author) && !empty($comment_email) && !empty($comment_content)) {
 
 
-            $query = "INSERT INTO comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
+            $query = "INSERT INTO heroku_597cf2e5c9cb274.comments (comment_post_id, comment_author, comment_email, comment_content, comment_status,comment_date)";
 
             $query .= "VALUES ($the_post_id ,'{$comment_author}', '{$comment_email}', '{$comment_content }', 'unapproved',now())";
 
@@ -321,7 +321,7 @@
                  <?php 
 
 
-            $query = "SELECT * FROM comments WHERE comment_post_id = {$the_post_id} ";
+            $query = "SELECT * FROM heroku_597cf2e5c9cb274.comments WHERE comment_post_id = {$the_post_id} ";
             $query .= "AND comment_status = 'approved' ";
             $query .= "ORDER BY comment_id DESC ";
             $select_comment_query = mysqli_query($connection, $query);
