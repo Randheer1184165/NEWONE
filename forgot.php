@@ -28,7 +28,7 @@ require './vendor/autoload.php';
             if(email_exists($email)){
 
 
-                if($stmt = mysqli_prepare($connection, "UPDATE users SET token='{$token}' WHERE user_email= ?")){
+                if($stmt = mysqli_prepare($connection, "UPDATE heroku_597cf2e5c9cb274.users SET token='{$token}' WHERE user_email= ?")){
 
                     mysqli_stmt_bind_param($stmt, "s", $email);
                     mysqli_stmt_execute($stmt);
