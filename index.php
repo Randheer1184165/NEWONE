@@ -50,12 +50,12 @@
          if(isset($_SESSION['user_role']) && $_SESSION['user_role'] == 'admin' ) {
 
 
-        $post_query_count = "SELECT * FROM posts";
+        $post_query_count = "SELECT * FROM heroku_597cf2e5c9cb274.posts";
 
 
          } else {
 
-         $post_query_count = "SELECT * FROM posts WHERE post_status = 'published'";
+         $post_query_count = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_status = 'published'";
 
          }   
 
@@ -78,7 +78,7 @@
 
 
                 
-        $query = "SELECT * FROM posts LIMIT $page_1, $per_page";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts LIMIT $page_1, $per_page";
         $select_all_posts_query = mysqli_query($connection,$query);
 
         while($row = mysqli_fetch_assoc($select_all_posts_query)) {
