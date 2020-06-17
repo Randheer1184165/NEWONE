@@ -32,14 +32,14 @@ if(isset($_SESSION['username']) && is_admin($_SESSION['username'])){
 
 
 
-      $stmt1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_category_id = ?");
+      $stmt1 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM heroku_597cf2e5c9cb274.posts WHERE post_category_id = ?");
 
 
 
 
     } else {
 
-         $stmt2 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM posts WHERE post_category_id = ? AND post_status = ? ");
+         $stmt2 = mysqli_prepare($connection, "SELECT post_id, post_title, post_author, post_date, post_image, post_content FROM heroku_597cf2e5c9cb274.posts WHERE post_category_id = ? AND post_status = ? ");
 
          $published = 'published';
 
