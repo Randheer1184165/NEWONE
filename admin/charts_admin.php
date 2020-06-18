@@ -51,7 +51,7 @@
                       
   <?php 
 
-    $query = "SELECT * FROM posts";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts";
     $select_all_post = mysqli_query($connection,$query);
     $post_count = mysqli_num_rows($select_all_post);
 
@@ -84,7 +84,7 @@
 
       <?php 
 
-    $query = "SELECT * FROM comments";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.comments";
     $select_all_comments = mysqli_query($connection,$query);
     $comment_count = mysqli_num_rows( $select_all_comments);
 
@@ -117,7 +117,7 @@
 
    <?php 
 
-    $query = "SELECT * FROM users";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.users";
     $select_all_users = mysqli_query($connection,$query);
     $user_count = mysqli_num_rows($select_all_users);
 
@@ -150,7 +150,7 @@
 
      <?php 
 
-    $query = "SELECT * FROM categories";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories";
     $select_all_categories = mysqli_query($connection,$query);
     $category_count = mysqli_num_rows($select_all_categories);
 
