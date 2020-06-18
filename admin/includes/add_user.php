@@ -15,7 +15,7 @@
 
             $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));    
               
-            $query = "INSERT INTO users(user_firstname, user_lastname, user_role,username,user_email,user_password) ";
+            $query = "INSERT INTO heroku_597cf2e5c9cb274.users(user_firstname, user_lastname, user_role,username,user_email,user_password) ";
                  
             $query .= "VALUES('{$user_firstname}','{$user_lastname}','{$user_role}','{$username}','{$user_email}', '{$user_password}') "; 
                  
