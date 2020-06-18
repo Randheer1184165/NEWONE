@@ -6,22 +6,22 @@ if(isset($_POST['checkBoxArray'])) {
         $bulk_options = $_POST['bulk_options'];
         switch($bulk_options) {
             case 'published':
-                $query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = {$postValueId}  ";
+                $query = "UPDATE heroku_597cf2e5c9cb274.posts SET post_status = '{$bulk_options}' WHERE post_id = {$postValueId}  ";
                 $update_to_published_status = mysqli_query($connection,$query);
                 confirmQuery($update_to_published_status);
                 break;
             case 'draft':
-                $query = "UPDATE posts SET post_status = '{$bulk_options}' WHERE post_id = {$postValueId}  ";
+                $query = "UPDATE heroku_597cf2e5c9cb274.posts SET post_status = '{$bulk_options}' WHERE post_id = {$postValueId}  ";
                 $update_to_draft_status = mysqli_query($connection,$query);
                 confirmQuery($update_to_draft_status);
                 break;
             case 'delete':
-                $query = "DELETE FROM posts WHERE post_id = {$postValueId}  ";
+                $query = "DELETE FROM heroku_597cf2e5c9cb274.posts WHERE post_id = {$postValueId}  ";
                 $update_to_delete_status = mysqli_query($connection,$query);
                 confirmQuery($update_to_delete_status);
                 break;
             case 'clone':
-                $query = "SELECT * FROM posts WHERE post_id = '{$postValueId}' ";
+                $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_id = '{$postValueId}' ";
                 $select_post_query = mysqli_query($connection, $query);
                 while ($row = mysqli_fetch_array($select_post_query)) {
                     $post_title         = $row['post_title'];
@@ -34,7 +34,7 @@ if(isset($_POST['checkBoxArray'])) {
                     $post_content       = $row['post_content'];
 
                 }
-                $query = "INSERT INTO posts(post_category_id, post_title, post_author, post_date,post_image,post_content,post_tags,post_status) ";
+                $query = "INSERT INTO heroku_597cf2e5c9cb274.posts(post_category_id, post_title, post_author, post_date,post_image,post_content,post_tags,post_status) ";
                 $query .= "VALUES({$post_category_id},'{$post_title}','{$post_author}',now(),'{$post_image}','{$post_content}','{$post_tags}', '{$post_status}') ";
                 $copy_query = mysqli_query($connection, $query);
 
@@ -89,7 +89,7 @@ if(isset($_POST['checkBoxArray'])) {
 
         <tbody>
         <?php
-        $query = "SELECT * FROM posts ORDER BY post_id DESC ";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts ORDER BY post_id DESC ";
         $select_posts = mysqli_query($connection,$query);
         while($row = mysqli_fetch_assoc($select_posts )) {
             $post_id            = $row['post_id'];
@@ -117,7 +117,7 @@ if(isset($_POST['checkBoxArray'])) {
             }
 
             echo "<td>$post_title</td>";
-            $query = "SELECT * FROM categories WHERE cat_id = {$post_category_id} ";
+            $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories WHERE cat_id = {$post_category_id} ";
             $select_categories_id = mysqli_query($connection,$query);
 
             while($row = mysqli_fetch_assoc($select_categories_id)) {
@@ -130,7 +130,7 @@ if(isset($_POST['checkBoxArray'])) {
             echo "<td>$post_tags</td>";
 
 
-            $query = "SELECT * FROM comments WHERE comment_post_id = $post_id";
+            $query = "SELECT * FROM heroku_597cf2e5c9cb274.comments WHERE comment_post_id = $post_id";
             $send_comment_query = mysqli_query($connection, $query);
             $row = mysqli_fetch_array($send_comment_query);
            // $comment_id = $row['comment_id'];
@@ -157,7 +157,7 @@ if(isset($_GET['delete'])){
     $post_id = $_GET['p_id'];
     if(is_the_logged_in_user_owner($post_id)){
        $stmt = stmtConnection();
-        mysqli_stmt_prepare($stmt, "DELETE FROM posts WHERE post_id=?");
+        mysqli_stmt_prepare($stmt, "DELETE FROM heroku_597cf2e5c9cb274.posts WHERE post_id=?");
         mysqli_stmt_bind_param($stmt, "i", $post_id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
@@ -168,7 +168,7 @@ if(isset($_GET['reset'])){
     $post_id = $_GET['p_id'];
     if(is_the_logged_in_user_owner($post_id)){
         $stmt = stmtConnection();
-        mysqli_stmt_prepare($stmt, "UPDATE posts SET post_views_count=0 WHERE post_id=?");
+        mysqli_stmt_prepare($stmt, "UPDATE heroku_597cf2e5c9cb274.posts SET post_views_count=0 WHERE post_id=?");
         mysqli_stmt_bind_param($stmt, "i", $post_id);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
