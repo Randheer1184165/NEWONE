@@ -5,7 +5,7 @@
 
     $username = $_SESSION['username'];
 
-    $query = "SELECT * FROM users WHERE username = '{$username}' ";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.users WHERE username = '{$username}' ";
 
     $select_user_profile_query = mysqli_query($connection, $query);
 
@@ -49,7 +49,7 @@ if(isset($_POST['edit_user'])) {
 
 //        move_uploaded_file($post_image_temp, "./images/$post_image" );
 
-        $query = "SELECT randSalt FROM users";
+        $query = "SELECT randSalt FROM heroku_597cf2e5c9cb274.users";
         $select_randsalt_query = mysqli_query($connection, $query);
         if(!$select_randsalt_query) {
         die("Query Failed" . mysqli_error($connection));
@@ -61,7 +61,7 @@ if(isset($_POST['edit_user'])) {
         $hashed_password = crypt($user_password, $salt);
 
 
-          $query = "UPDATE users SET ";
+          $query = "UPDATE heroku_597cf2e5c9cb274.users SET ";
           $query .="user_firstname  = '{$user_firstname}', ";
           $query .="user_lastname = '{$user_lastname}', ";
           $query .="username = '{$username}', ";
