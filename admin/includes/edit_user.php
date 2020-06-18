@@ -9,7 +9,7 @@ if(isset($_GET['edit_user'])){
     $the_user_id =  escape($_GET['edit_user']);
     
 
-    $query = "SELECT * FROM users WHERE user_id = $the_user_id ";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.users WHERE user_id = $the_user_id ";
     $select_users_query = mysqli_query($connection,$query);  
 
       while($row = mysqli_fetch_assoc($select_users_query)) {
@@ -56,7 +56,7 @@ if(isset($_GET['edit_user'])){
 
         if(!empty($user_password)) {
 
-          $query_password = "SELECT user_password FROM users WHERE user_id =  $the_user_id";
+          $query_password = "SELECT user_password FROM heroku_597cf2e5c9cb274.users WHERE user_id =  $the_user_id";
           $get_user_query = mysqli_query($connection, $query_password);
           confirmQuery($get_user_query);
 
@@ -72,7 +72,7 @@ if(isset($_GET['edit_user'])){
           }
 
 
-          $query = "UPDATE users SET ";
+          $query = "UPDATE heroku_597cf2e5c9cb274.users SET ";
           $query .="user_firstname  = '{$user_firstname}', ";
           $query .="user_lastname = '{$user_lastname}', ";
           $query .="user_role   =  '{$user_role}', ";
