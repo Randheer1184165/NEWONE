@@ -7,7 +7,7 @@
     }
 
 
-    $query = "SELECT * FROM posts WHERE post_id = $the_post_id  ";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_id = $the_post_id  ";
     $select_posts_by_id = mysqli_query($connection,$query);  
 
     while($row = mysqli_fetch_assoc($select_posts_by_id)) {
@@ -41,7 +41,7 @@
         
         if(empty($post_image)) {
         
-        $query = "SELECT * FROM posts WHERE post_id = $the_post_id ";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_id = $the_post_id ";
         $select_image = mysqli_query($connection,$query);
             
         while($row = mysqli_fetch_array($select_image)) {
@@ -55,7 +55,7 @@
         $post_title = mysqli_real_escape_string($connection, $post_title);
 
         
-          $query = "UPDATE posts SET ";
+          $query = "UPDATE heroku_597cf2e5c9cb274.posts SET ";
           $query .="post_title  = '{$post_title}', ";
           $query .="post_category_id = '{$post_category_id}', ";
           $query .="post_date   =  now(), ";
@@ -100,7 +100,7 @@
            
       <?php
 
-        $query = "SELECT * FROM categories ";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories ";
         $select_categories = mysqli_query($connection,$query);
         
         confirmQuery($select_categories);
@@ -144,7 +144,7 @@
            
 <?php
 
-        $users_query = "SELECT * FROM users";
+        $users_query = "SELECT * FROM heroku_597cf2e5c9cb274.users";
         $select_users = mysqli_query($connection,$users_query);
         
         confirmQuery($select_users);
