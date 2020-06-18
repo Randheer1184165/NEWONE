@@ -68,7 +68,7 @@
                       
                       <?php 
 
-                        $query = "SELECT * FROM posts";
+                        $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts";
                         $select_all_post = mysqli_query($connection,$query);
                         $post_count = mysqli_num_rows($select_all_post);
 
@@ -101,7 +101,7 @@
 
                                       <?php 
 
-                                    $query = "SELECT * FROM comments";
+                                    $query = "SELECT * FROM heroku_597cf2e5c9cb274.comments";
                                     $select_all_comments = mysqli_query($connection,$query);
                                     $comment_count = mysqli_num_rows( $select_all_comments);
 
@@ -134,7 +134,7 @@
 
                                        <?php 
 
-                                        $query = "SELECT * FROM users";
+                                        $query = "SELECT * FROM heroku_597cf2e5c9cb274.users";
                                         $select_all_users = mysqli_query($connection,$query);
                                         $user_count = mysqli_num_rows($select_all_users);
 
@@ -167,7 +167,7 @@
 
                                      <?php 
 
-                                    $query = "SELECT * FROM categories";
+                                    $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories";
                                     $select_all_categories = mysqli_query($connection,$query);
                                     $category_count = mysqli_num_rows($select_all_categories);
 
@@ -194,23 +194,23 @@
                 
     <?php 
 
- $query = "SELECT * FROM posts WHERE post_status = 'published' ";
+ $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_status = 'published' ";
 $select_all_published_posts = mysqli_query($connection,$query);
 $post_published_count = mysqli_num_rows($select_all_published_posts);
                                      
 
                                       
-$query = "SELECT * FROM posts WHERE post_status = 'draft' ";
+$query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_status = 'draft' ";
 $select_all_draft_posts = mysqli_query($connection,$query);
 $post_draft_count = mysqli_num_rows($select_all_draft_posts);
 
 
-$query = "SELECT * FROM comments WHERE comment_status = 'unapproved' ";
+$query = "SELECT * FROM heroku_597cf2e5c9cb274.comments WHERE comment_status = 'unapproved' ";
 $unapproved_comments_query = mysqli_query($connection,$query);
 $unapproved_comment_count = mysqli_num_rows($unapproved_comments_query);
 
 
-$query = "SELECT * FROM users WHERE user_role = 'subscriber'";
+$query = "SELECT * FROM heroku_597cf2e5c9cb274.users WHERE user_role = 'subscriber'";
 $select_all_subscribers = mysqli_query($connection,$query);
 $subscriber_count = mysqli_num_rows($select_all_subscribers);
 
