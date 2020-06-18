@@ -10,7 +10,7 @@ if(isset($_POST['checkBoxArray'])) {
         switch($bulk_options) {
         case 'approved':
         
-$query = "UPDATE comments SET comment_status = '{$bulk_options}' WHERE comment_id = {$commentValueId}  ";
+$query = "UPDATE heroku_597cf2e5c9cb274.comments SET comment_status = '{$bulk_options}' WHERE comment_id = {$commentValueId}  ";
         
  $update_to_approved_status = mysqli_query($connection,$query);
             
@@ -22,7 +22,7 @@ confirmQuery( $update_to_approved_status);
             
               case 'unapproved':
         
-$query = "UPDATE comments SET comment_status = '{$bulk_options}' WHERE comment_id = {$commentValueId}  ";
+$query = "UPDATE heroku_597cf2e5c9cb274.comments SET comment_status = '{$bulk_options}' WHERE comment_id = {$commentValueId}  ";
         
  $update_to_unapproved_status = mysqli_query($connection,$query);
             
@@ -35,7 +35,7 @@ confirmQuery($update_to_unapproved_status);
             
                case 'delete':
         
-$query = "DELETE FROM comments WHERE comment_id = {$commentValueId}  ";
+$query = "DELETE FROM heroku_597cf2e5c9cb274.comments WHERE comment_id = {$commentValueId}  ";
         
  $update_to_delete = mysqli_query($connection,$query);
             
@@ -104,7 +104,7 @@ confirmQuery($update_to_delete);
 
   <?php 
     
-    $query = "SELECT * FROM comments";
+    $query = "SELECT * FROM heroku_597cf2e5c9cb274.comments";
 
     $select_comments = mysqli_query($connection,$query);
 //    $select_comments=  mysqli_query($connection,$query);
@@ -150,7 +150,7 @@ confirmQuery($update_to_delete);
         echo "<td>$comment_status</td>";
         
         
-        $query = "SELECT * FROM posts WHERE post_id = $comment_post_id ";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.posts WHERE post_id = $comment_post_id ";
         $select_post_id_query = mysqli_query($connection,$query);
         while($row = mysqli_fetch_assoc($select_post_id_query)){
         $post_id = $row['post_id'];
@@ -191,7 +191,7 @@ if(isset($_GET['approve'])){
     
     $the_comment_id = escape($_GET['approve']);
     
-    $query = "UPDATE comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id   ";
+    $query = "UPDATE heroku_597cf2e5c9cb274.comments SET comment_status = 'approved' WHERE comment_id = $the_comment_id   ";
     $approve_comment_query = mysqli_query($connection, $query);
     header("Location: comments.php");
     
@@ -206,7 +206,7 @@ if(isset($_GET['unapprove'])){
     
     $the_comment_id = escape($_GET['unapprove']);
     
-    $query = "UPDATE comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
+    $query = "UPDATE heroku_597cf2e5c9cb274.comments SET comment_status = 'unapproved' WHERE comment_id = $the_comment_id ";
     $unapprove_comment_query = mysqli_query($connection, $query);
     header("Location: comments.php");
     
@@ -220,7 +220,7 @@ if(isset($_GET['delete'])){
     
     $the_comment_id = escape($_GET['delete']);
     
-    $query = "DELETE FROM comments WHERE comment_id = {$the_comment_id} ";
+    $query = "DELETE FROM heroku_597cf2e5c9cb274.comments WHERE comment_id = {$the_comment_id} ";
     $delete_query = mysqli_query($connection, $query);
     header("Location: comments.php");
     
