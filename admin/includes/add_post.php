@@ -21,7 +21,7 @@
         move_uploaded_file($post_image_temp, "../images/$post_image" );
        
        
-      $query = "INSERT INTO posts(post_category_id, post_title, post_user, post_date,post_image,post_content,post_tags,post_status) ";
+      $query = "INSERT INTO heroku_597cf2e5c9cb274.posts(post_category_id, post_title, post_user, post_date,post_image,post_content,post_tags,post_status) ";
              
       $query .= "VALUES({$post_category_id},'{$post_title}','{$post_user}',now(),'{$post_image}','{$post_content}','{$post_tags}', '{$post_status}') "; 
              
@@ -57,7 +57,7 @@
            
 <?php
 
-        $query = "SELECT * FROM categories";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories";
         $select_categories = mysqli_query($connection,$query);
         
         confirmQuery($select_categories);
@@ -87,7 +87,7 @@
            
 <?php
 
-        $users_query = "SELECT * FROM users";
+        $users_query = "SELECT * FROM heroku_597cf2e5c9cb274.users";
         $select_users = mysqli_query($connection,$users_query);
         
         confirmQuery($select_users);
