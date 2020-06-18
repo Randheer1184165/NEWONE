@@ -12,7 +12,7 @@
 
 
     
-        $query = "SELECT * FROM categories WHERE cat_id = $cat_id ";
+        $query = "SELECT * FROM heroku_597cf2e5c9cb274.categories WHERE cat_id = $cat_id ";
         $select_categories_id = mysqli_query($connection,$query);  
 
             while($row = mysqli_fetch_assoc($select_categories_id)) {
@@ -35,7 +35,7 @@
 
                 $the_cat_title = escape($_POST['cat_title']);
 
-                $stmt = mysqli_prepare($connection, "UPDATE categories SET cat_title = ? WHERE cat_id = ? ");
+                $stmt = mysqli_prepare($connection, "UPDATE heroku_597cf2e5c9cb274.categories SET cat_title = ? WHERE cat_id = ? ");
 
                  mysqli_stmt_bind_param($stmt, 'si', $the_cat_title, $cat_id);
 
